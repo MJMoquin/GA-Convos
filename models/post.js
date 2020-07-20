@@ -13,6 +13,9 @@ const postSchema = new Schema({
     rating: {
         type: Number
     },
+    comments: {
+      type: [String]
+    },
     userId: {
       type: Schema.Types.ObjectId, 
       ref: 'User'

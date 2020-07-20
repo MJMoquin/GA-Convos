@@ -1,3 +1,14 @@
 span {
   color: tomato ;
 }
+
+.rounded {
+  border-radius: 5px !important;
+  width: 100px;
+}
+
+/* .post-text {
+  display: block;
+  height: 200px;
+  overflow: auto;
+} */
