@@ -85,6 +85,7 @@ class App extends Component {
           <UserPostsPage 
             posts={this.state.posts} 
             user={this.state.user}
+            handleDeletePost={this.handleDeletePost}
           />
         }/>
 
