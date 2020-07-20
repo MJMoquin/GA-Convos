@@ -20,7 +20,7 @@ class App extends Component {
 
   handleLogout = () => {
     userService.logout();
-    this.setState({ user: null });
+    this.setState({ user: null })
   }
 
   handleSignupOrLogin = () => {
@@ -83,11 +83,15 @@ class App extends Component {
         }/>
 
         <Route exact path='/posts/user' render={() => 
+          userService.getUser()
+          ?
           <UserPostsPage 
             posts={this.state.posts} 
             user={this.state.user}
             handleDeletePost={this.handleDeletePost}
           />
+          :
+          <Redirect to="/" />
         }/>
 
         <Route exact path='/edit' render={({ location }) => 
