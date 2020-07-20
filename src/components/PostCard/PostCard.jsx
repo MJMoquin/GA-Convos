@@ -13,8 +13,9 @@ export default function PostCard({ post, user, handleDeletePost }) {
               <span className="card-title">
                 {post.title}
               </span>
-              <p className="scroll-text">{post.description}</p>
+              <p>{post.description}</p>
             </div>
+
             <div class="card-action">
               <Link className="btn-small waves-effect waves-light orange lighten-3" to={{pathname: '/edit',state: {post}}}>
                 Edit Convo
