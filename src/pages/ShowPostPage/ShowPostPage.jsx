@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function ShowPostPage(props) {
   const post = props.location.state.post
 
-    let card = (props.user._id === post.userId) ?
+    let card = (props.user && props.user._id === post.userId) ?
     <> 
       <div className="row">
         <div className="col s8 offset-s2">
