@@ -98,7 +98,7 @@ class App extends Component {
           />
         }/>
 
-        <Route exact path='/:id' render={({ location }) => 
+        <Route exact path='/post' render={({ location }) => 
           <ShowPostPage
             handleDeletePost={this.handleDeletePost}
             posts={this.state.posts}

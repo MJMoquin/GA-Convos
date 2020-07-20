@@ -4,7 +4,7 @@ import './PostCard.css'
 
 
 export default function PostCard({ post }) {
-  // let card = (user._id === post.userId) ?
+  // 
   //   <>
   //     <div className="row">
   //       <div class="col s10 offset-s1">
@@ -50,7 +50,7 @@ export default function PostCard({ post }) {
   return(
     <>
       <div className="row">
-        <div class="col s10 offset-s1">
+        <div className="col s10 offset-s1">
           <div className="card blue-grey darken">
             <div className="card-content white-text">
               <span className="card-title">
@@ -59,7 +59,7 @@ export default function PostCard({ post }) {
               <p>{post.description}</p>
             </div>
             <div class="card-action">
-              <Link className="rounded btn-small orange lighten-3 black-text" to={{pathname: `/${post._id}`, state: {post}}}>
+              <Link className="rounded btn-small orange lighten-3 black-text" to={{pathname: `/post`, state: {post}}}>
                 Show Post
               </Link>
             </div>

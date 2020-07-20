@@ -2,26 +2,27 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 export default function ShowPostPage(props) {
-  
-  return (
+  const post = props.location.state.post
+
+    let card = (props.user._id === post.userId) ?
     <> 
       <div className="row">
-        <div class="col s8 offset-s2">
+        <div className="col s8 offset-s2">
           <div className="card blue-grey darken">
             <div className="card-content white-text">
-              <span className="card-title">Post Title
-                {/* {props.post.title} */}
-              </span>Description:
-              {/* <p>{this.post.description}</p> */}
-              <div>Comments:
-                {/* {props.post.comments.map(comment =>
-                  comment
-                  )} */}
+              <span className="card-title">
+                {post.title}
+              </span><hr></hr>
+              <p>{post.description}</p><hr></hr>
+              <div>
+                <h6>Comments:</h6>
+                {post.comments.map(comment =>
+                  <div>{comment}</div>
+                  )}
               </div>
             </div>
-
             <div class="card-action">
-              <Link className="rounded btn-small orange lighten-3 black-text" to={{pathname: '/edit', state: {}}}>
+              <Link className="rounded btn-small orange lighten-3 black-text" to={{pathname: '/edit', state: {post}}}>
                 Edit
               </Link>
               <button type="submit" className="rounded right btn-small red darken-4" onClick={() => this.handleDeletePost(this.post._id)}>
@@ -32,6 +33,32 @@ export default function ShowPostPage(props) {
         </div>
       </div>
     </>
-  );
+    :
+    <> 
+      <div className="row">
+        <div className="col s8 offset-s2">
+          <div className="card blue-grey darken">
+            <div className="card-content white-text">
+              <span className="card-title">
+                {post.title}
+              </span><hr></hr>
+              <p>{post.description}</p><hr></hr>
+              <div>
+                <h6>Comments:</h6>
+                {post.comments.map(comment =>
+                  <div>{comment}</div>
+                  )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+
+  return (
+    <>
+    {card}
+    </>
+  )
 
 }
