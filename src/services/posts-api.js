@@ -33,10 +33,3 @@ export function update(post) {
     }, {mode: "cors"})
     .then(res => res.json());
 }
-
-// export function show(post) {
-//   return fetch(`${BASE_URL}${post._id}`, {
-//     headers: {'Authorization': 'Bearer ' + tokenService.getToken()}
-// }, {mode: "cors"})
-// .then(res => res.json())
-// }

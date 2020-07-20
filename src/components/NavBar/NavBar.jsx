@@ -7,6 +7,7 @@ const NavBar = ({ user, handleLogout }) => {
         <div className="nav-wrapper">
           <a className="nav-logo left" href="/">ConvoS</a>
           <ul id="nav-mobile" className="right">
+            <li><a href="/" className="nav-link">All Posts</a></li>
             <li><a href="/posts/user" className="nav-link">My Posts</a></li>
             <li><a href="/posts/add" className="nav-link">New Post</a></li>
             <li><a href=" " className="nav-link">Welcome, {user.name}</a></li>

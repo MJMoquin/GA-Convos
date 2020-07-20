@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 export default function ShowPostPage(props) {
+
   const post = props.location.state.post
 
     let card = (props.user && props.user._id === post.userId) ?
@@ -14,11 +15,13 @@ export default function ShowPostPage(props) {
                 {post.title}
               </span><hr></hr>
               <p>{post.description}</p><hr></hr>
+              <Link className="rounded btn-small" to={{pathname: '/comment', state: {post}}}>
+                Comment
+              </Link>
               <div>
-                <h6>Comments:</h6>
                 {post.comments.map(comment =>
                   <div>{comment}</div>
-                  )}
+                )}
               </div>
             </div>
             <div class="card-action">

@@ -11,6 +11,7 @@ import PostList from '../PostList/PostList'
 import UserPostsPage from '../UserPostsPage/UserPostsPage'
 import EditPost from '../EditPost/EditPost'
 import ShowPostPage from '../ShowPostPage/ShowPostPage'
+import AddCommentPage from '../AddCommentPage/AddCommentPage';
 
 class App extends Component {
   state = {
@@ -96,6 +97,14 @@ class App extends Component {
 
         <Route exact path='/edit' render={({ location }) => 
           <EditPost
+            handleUpdatePost={this.handleUpdatePost}
+            location={location}
+            user={this.state.user}
+          />
+        }/>
+
+        <Route exact path='/comment' render={({ location }) => 
+          <AddCommentPage
             handleUpdatePost={this.handleUpdatePost}
             location={location}
             user={this.state.user}
