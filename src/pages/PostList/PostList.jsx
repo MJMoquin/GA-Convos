@@ -10,6 +10,8 @@ export default function PostList(props) {
           <PostCard 
             key={post._id}
             post={post}
+            user={props.user}
+            handleDeletePost={props.handleDeletePost}
           />
         )}
       </div>

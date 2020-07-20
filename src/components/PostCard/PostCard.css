@@ -1,3 +1,7 @@
 span {
   color: tomato ;
 }
+
+.scroll-text {
+  overflow: auto;
+}

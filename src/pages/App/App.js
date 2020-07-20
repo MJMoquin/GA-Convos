@@ -8,6 +8,8 @@ import userService from '../../services/userService';
 import * as postAPI from '../../services/posts-api';
 import AddPost from '../AddPost/AddPost'
 import PostList from '../PostList/PostList'
+import UserPostsPage from '../UserPostsPage/UserPostsPage'
+import EditPost from '../EditPost/EditPost'
 
 class App extends Component {
   state = {
@@ -31,9 +33,27 @@ class App extends Component {
     }), () => this.props.history.push('/'));
   }
 
+  handleDeletePost = async id => {
+    await postAPI.deleteOne(id);
+    this.setState(state => ({
+      posts: state.posts.filter(post => post._id !== post.id)
+    }), () => this.props.history.push('/'));
+  }
+
+  handleUpdatePost = async updatedPostData => {
+    const updatedPost = await postAPI.update(updatedPostData)
+    const newPostsList = this.state.posts.map(post => 
+      post._id === updatedPost._id ? updatedPost : post
+    );
+    this.setState(
+      {posts: newPostsList},
+      () => this.props.history.push('/')
+    );
+    
+  }
+
   async componentDidMount() {
     const posts = await postAPI.getAll();
-    console.log(posts)
     this.setState({ posts })
   }
 
@@ -43,13 +63,36 @@ class App extends Component {
         <NavBar user={this.state.user} handleLogout={this.handleLogout}/>
 
         <Route exact path='/posts/add' render={() => 
-          userService.getUser() ? <AddPost handleAddPost = {this.handleAddPost} user={this.state.user}/> : <Redirect to='/login' />
+          userService.getUser() 
+          ? 
+          <AddPost 
+            handleAddPost = {this.handleAddPost} 
+            user={this.state.user}
+          /> 
+          : 
+          <Redirect to='/login' />
         }/>
 
         <Route exact path='/' render={() => 
           <PostList 
             posts={this.state.posts} 
-            user={this.state.user} 
+            user={this.state.user}
+            handleDeletePost={this.handleDeletePost}
+          />
+        }/>
+
+        <Route exact path='/posts/user' render={() => 
+          <UserPostsPage 
+            posts={this.state.posts} 
+            user={this.state.user}
+          />
+        }/>
+
+        <Route exact path='/edit' render={({ location }) => 
+          <EditPost
+            handleUpdatePost={this.handleUpdatePost}
+            location={location}
+            user={this.state.user}
           />
         }/>
 

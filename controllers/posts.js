@@ -21,6 +21,7 @@ function showPost(req, res) {
 }
 
 function createPost(req, res) {
+  req.body.userId = req.user
   Post.create(req.body)
   .then(posts => {res.json(posts)})
   .catch(error => {res.json(error)})
