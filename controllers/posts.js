@@ -22,6 +22,7 @@ function showPost(req, res) {
 
 function createPost(req, res) {
   req.body.userId = req.user
+  req.body.comments = []
   Post.create(req.body)
   .then(posts => {res.json(posts)})
   .catch(error => {res.json(error)})
@@ -31,7 +32,6 @@ function updatePost(req, res) {
   Post.findByIdAndUpdate(req.params.id, req.body, {new: true})
   .then(posts => {res.json(posts)})
   .catch(error => {res.json(error)})
-  
 }
 
 function deletePost(req, res) {

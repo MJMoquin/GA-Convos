@@ -10,6 +10,7 @@ import AddPost from '../AddPost/AddPost'
 import PostList from '../PostList/PostList'
 import UserPostsPage from '../UserPostsPage/UserPostsPage'
 import EditPost from '../EditPost/EditPost'
+import ShowPostPage from '../ShowPostPage/ShowPostPage'
 
 class App extends Component {
   state = {
@@ -94,6 +95,15 @@ class App extends Component {
             handleUpdatePost={this.handleUpdatePost}
             location={location}
             user={this.state.user}
+          />
+        }/>
+
+        <Route exact path='/:id' render={({ location }) => 
+          <ShowPostPage
+            handleDeletePost={this.handleDeletePost}
+            posts={this.state.posts}
+            user={this.state.user}
+            location={location}
           />
         }/>
 
