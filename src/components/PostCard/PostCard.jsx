@@ -9,7 +9,7 @@ export default function PostCard({ post }) {
     <>
       <div className="row">
         <div className="col s10 offset-s1">
-          <div className="card blue-grey darken">
+          <div className="card small blue-grey darken">
             <div className="card-content white-text">
               <span className="card-title">
                 {post.title}

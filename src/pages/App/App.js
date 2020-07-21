@@ -38,7 +38,7 @@ class App extends Component {
   handleDeletePost = async id => {
     await postAPI.deleteOne(id);
     this.setState(state => ({
-      posts: state.posts.filter(post => post._id !== post.id)
+      posts: state.posts.filter(post => post._id !== id)
     }), () => this.props.history.push('/'));
   }
 
@@ -51,7 +51,6 @@ class App extends Component {
       {posts: newPostsList},
       () => this.props.history.push('/')
     );
-    
   }
 
   async componentDidMount() {

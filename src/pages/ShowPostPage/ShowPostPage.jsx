@@ -15,6 +15,7 @@ export default function ShowPostPage(props) {
                 {post.title}
               </span><hr></hr>
               <p>{post.description}</p><hr></hr>
+              {/* Future comments code
               <Link className="rounded btn-small" to={{pathname: '/comment', state: {post}}}>
                 Comment
               </Link>
@@ -22,13 +23,13 @@ export default function ShowPostPage(props) {
                 {post.comments.map(comment =>
                   <div>{comment}</div>
                 )}
-              </div>
+              </div> */}
             </div>
             <div class="card-action">
               <Link className="rounded btn-small orange lighten-3 black-text" to={{pathname: '/edit', state: {post}}}>
                 Edit
               </Link>
-              <button type="submit" className="rounded right btn-small red darken-4" onClick={() => this.handleDeletePost(this.post._id)}>
+              <button type="submit" className="rounded right btn-small red darken-4" onClick={() => props.handleDeletePost(post._id)}>
                 Delete
               </button>
             </div>
@@ -46,12 +47,16 @@ export default function ShowPostPage(props) {
                 {post.title}
               </span><hr></hr>
               <p>{post.description}</p><hr></hr>
+              {/* Future comments code
+              <Link className="rounded btn-small" to={{pathname: '/comment', state: {post}}}>
+                Comment
+              </Link>
               <div>
                 <h6>Comments:</h6>
                 {post.comments.map(comment =>
                   <div>{comment}</div>
                   )}
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

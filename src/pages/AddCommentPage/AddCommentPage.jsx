@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class AddCommentPage extends Component {
   state = {
     invalidForm: false,
-    formData: this.props.location.state.post.comments
+    formData: this.props.location.state.post
   }
 
   formRef = React.createRef();

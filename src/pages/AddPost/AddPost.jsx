@@ -46,7 +46,6 @@ export default class AddPost extends Component {
               <div className="input-field col s6 offset-s3">
                 <textarea 
                   name="description" 
-                  id="description" 
                   type="text" 
                   className="materialize-textarea" 
                   value={this.state.formData.description} 
