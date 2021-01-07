@@ -10,6 +10,8 @@ const NavBar = ({ user, handleLogout }) => {
             <li><a href="/" className="nav-link">All Posts</a></li>
             <li><a href="/posts/user" className="nav-link">My Posts</a></li>
             <li><a href="/posts/add" className="nav-link">New Post</a></li>
+            <li><a class="btn btn-info" href="https://www.dropbox.com/s/7jee1tesiwc9ggr/Matthew%20Moquin%20Resume.pdf?dl=0" download="resume.pdf">My Resume</a></li>
+            {/* <li><Link to="route" target="_blank" onClick={(event) => {event.preventDefault(); window.open(this.makeHref("route"));}} /></li> */}
             <li><a href=" " className="nav-link">Welcome, {user.name}</a></li>
             <li><a href=" " className="nav-link" onClick={handleLogout}>Log Out</a></li>
           </ul>

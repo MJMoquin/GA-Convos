@@ -49,7 +49,7 @@ export default class AddPost extends Component {
                   type="text" 
                   className="materialize-textarea" 
                   value={this.state.formData.description} 
-                  onChange={this.handleChange}
+                  onChange={this.handleChange} required
                 />
                 <label htmlFor="description">Description</label>
               </div>

@@ -3,7 +3,9 @@ const BASE_URL = '/api/posts/';
 
 export function getAll() {
     return fetch(BASE_URL, {
-        headers: {'Authorization': 'Bearer ' + tokenService.getToken()}
+        headers: {
+          'Authorization': 'Bearer ' + tokenService.getToken()
+        }
     }, {mode: "cors"})
     .then(res => res.json())
 }
